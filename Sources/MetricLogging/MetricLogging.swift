@@ -1,7 +1,7 @@
 import MetricKit
 import Combine
 
-public class metric_logging: NSObject {
+public class MetricLogging: NSObject {
     var metricAttributes: AnyPublisher<[String: Double], Never> { return _metricAttributes.eraseToAnyPublisher() }
 
     private let _metricAttributes = PassthroughSubject<[String: Double], Never>()
@@ -15,7 +15,7 @@ protocol HandlesSliceMetricAttributes {
     func didReceiveMetricPayloads(_ payloads: [MXMetricPayload])
 }
 
-extension metric_logging: MXMetricManagerSubscriber {
+extension MetricLogging: MXMetricManagerSubscriber {
     public func didReceive(_ payloads: [MXMetricPayload]) {
         guard let currentAppVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else {
             return
