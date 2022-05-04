@@ -2,7 +2,7 @@ import MetricKit
 import Combine
 
 public class MetricLogging: NSObject {
-    var metricAttributes: AnyPublisher<[String: Double], Never> { return _metricAttributes.eraseToAnyPublisher() }
+    public var metricAttributes: AnyPublisher<[String: Double], Never> { return _metricAttributes.eraseToAnyPublisher() }
 
     private let _metricAttributes = PassthroughSubject<[String: Double], Never>()
 
