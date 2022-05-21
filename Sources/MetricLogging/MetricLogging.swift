@@ -11,10 +11,6 @@ public class MetricLogging: NSObject {
     }
 }
 
-protocol HandlesSliceMetricAttributes {
-    func didReceiveMetricPayloads(_ payloads: [MXMetricPayload])
-}
-
 extension MetricLogging: MXMetricManagerSubscriber {
     public func didReceive(_ payloads: [MXMetricPayload]) {
         guard let currentAppVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else {
