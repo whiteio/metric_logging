@@ -6,7 +6,7 @@ public class MetricLogging: NSObject {
 
     private let _metricAttributes = PassthroughSubject<[String: Double], Never>()
 
-    func start() {
+    public func start() {
         MXMetricManager.shared.add(self)
     }
 }
